@@ -1,0 +1,39 @@
+<md-toolbar class="md-hue-2">
+  <div class="md-toolbar-tools">
+    <span>Meet-up planner</span>
+    <span flex></span>
+    <md-button
+      ng-show="!vm.user"
+      ui-sref="auth.login">
+      <i class="mdi mdi-login"></i>
+
+      Login
+    </md-button>
+
+    <md-list-item class="md-3-line"
+                  ng-show="vm.user"
+    >
+      <img class="md-avatar" alt="{{vm.user[vm.user.provider].displayName}}"
+           ng-src="{{vm.user[vm.user.provider].profileImageURL}}"
+      />
+
+      <div class="md-list-item-text">
+        <h3>
+          <i class="mdi" ng-class="vm.getProviderClass(vm.user.provider)"></i>
+
+          <span ng-bind="vm.user[vm.user.provider].displayName"></span>
+        </h3>
+
+        <p ng-bind="vm.user[vm.user.provider].email"></p>
+      </div>
+
+      <div class="md-list-item-text">
+        <md-button ng-click="vm.logout($event)">
+          <i class="mdi mdi-logout"></i>
+
+          Logout
+        </md-button>
+      </div>
+    </md-list-item>
+  </div>
+</md-toolbar>

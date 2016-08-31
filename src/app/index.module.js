@@ -2,6 +2,11 @@
   'use strict';
 
   angular
-    .module('udacitySrwebdevMeetupPlanner', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr']);
-
+    .module('davcs86.meetupPlanner', [
+      'davcs86.meetupPlanner.eventlist',
+      'davcs86.meetupPlanner.auth',
+      'davcs86.meetupPlanner.core',
+      'davcs86.meetupPlanner.layout'
+    ])
+  ;
 })();

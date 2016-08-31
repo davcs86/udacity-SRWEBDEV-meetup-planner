@@ -1,7 +1,9 @@
 {
-  "name": "Udacity-SrWebDev-Meetup-Planner",
+  "name": "udacity-srwebdev-meetup-planner",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
   "scripts": {
     "test": "gulp test"
   },
