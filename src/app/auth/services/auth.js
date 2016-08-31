@@ -9,7 +9,8 @@
   /**
    * @ngInject
    */
-  function Auth(dataservice, $firebaseAuth) {
-    return $firebaseAuth(dataservice.getReference());
+  function Auth($window, config, $firebaseAuth) {
+    $window.firebase.initializeApp(config);
+    return $firebaseAuth();
   }
 })();

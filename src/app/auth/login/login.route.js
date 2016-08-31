@@ -40,6 +40,6 @@
    * @ngInject
    */
   function _user(Auth) {
-    return Auth.$waitForAuth();
+    return Auth.$waitForSignIn();
   }
 })();

@@ -11,7 +11,7 @@
    */
   function LoginController(
     $state,
-    dataservice, logger
+    logger, Auth
   ) {
     var vm = this;
 
@@ -24,33 +24,31 @@
      *                              - google
      */
     vm.login = function(provider) {
-      var ref = dataservice.getReference();
+      //var ref = dataservice.getReference();
 
-      /**
-       * Login callback function which handles possible login errors and redirection if all is ok.
-       *
-       * @param {object}  error
-       * @param {object}  authData
-       */
-      var callback = function(error, authData) {
-        if (error) {
-          logger.error('Login Failed!', error);
+      var callbackSuccess = function(authData) {
+        logger.log('auth data', authData);
+        logger.success('Login successfully!');
+        $state.go('events');
+      };
+
+
+      var callbackError = function(error) {
+        if (error.code === 'auth/account-exists-with-different-credential'){
+          callbackSuccess(error.credential);
         } else {
-          logger.log('auth data', authData);
-          logger.success('Login successfully!');
-
-          $state.go('eventlist');
+          logger.error('Login Failed!', error);
         }
       };
 
       // Specify used options for Firebase auth
-      var options = {
-        remember: 'sessionOnly',
-        scope: (provider !== 'github') ? 'email' : 'user:email'
-      };
+      // var options = {
+      //   remember: 'sessionOnly',
+      //   scope: (provider !== 'github') ? 'email' : 'user:email'
+      // };
 
       // And make actual user authentication
-      ref.authWithOAuthPopup(provider, callback, options);
+      Auth.$signInWithPopup(provider).then(callbackSuccess).catch(callbackError);//, options);
     };
   }
 }());

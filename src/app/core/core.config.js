@@ -12,7 +12,9 @@
   var config = {
     appErrorPrefix: 'MeetUp Event Planner - Error',
     appTitle: 'MeetUp Event Planner',
-    firebaseUrl: 'https://davcs86-meetup-planner.firebaseio.com'
+    apiKey: 'AIzaSyCOMQ6vhn8AS1hDz95_1lt7Gojv4cl5oP0',
+    authDomain: 'davcs86-meetup-planner.firebaseapp.com',
+    databaseURL: 'https://davcs86-meetup-planner.firebaseio.com'
   };
 
   angular

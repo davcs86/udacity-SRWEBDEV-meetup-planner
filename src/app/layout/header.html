@@ -13,18 +13,18 @@
     <md-list-item class="md-3-line"
                   ng-show="vm.user"
     >
-      <img class="md-avatar" alt="{{vm.user[vm.user.provider].displayName}}"
-           ng-src="{{vm.user[vm.user.provider].profileImageURL}}"
+      <img class="md-avatar" alt="{{vm.user.displayName}}"
+           ng-src="{{vm.user.profileImageURL}}"
       />
 
       <div class="md-list-item-text">
         <h3>
           <i class="mdi" ng-class="vm.getProviderClass(vm.user.provider)"></i>
 
-          <span ng-bind="vm.user[vm.user.provider].displayName"></span>
+          <span ng-bind="vm.user.displayName"></span>
         </h3>
 
-        <p ng-bind="vm.user[vm.user.provider].email"></p>
+        <p ng-bind="vm.user.email"></p>
       </div>
 
       <div class="md-list-item-text">

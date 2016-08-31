@@ -51,13 +51,13 @@
       $event.preventDefault();
       $event.stopPropagation();
 
-      Auth.$unauth();
+      Auth.$signOut();
 
-      $state.go('eventlist');
+      $state.go('events');
     };
 
     // Watcher for auth status
-    Auth.$onAuth(function onAuth(user) {
+    Auth.$onAuthStateChanged(function onAuth(user) {
       vm.user = user;
     });
   }
