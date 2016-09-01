@@ -16,7 +16,7 @@
     var vm = this;
 
     // Initialize user object
-    vm.user = {};
+    vm.user = Auth._._._auth;
 
     /**
      * Method to get provider class for currently authenticated user.
@@ -24,18 +24,26 @@
      * @param   {string}  provider
      * @returns {string}
      */
-    vm.getProviderClass = function getProviderClass(provider) {
+    vm.getProviderClass = function getProviderClass(user) {
       var output = '';
 
+      if (user==null){return;}
+      if (user.providerData.length>0){
+        var provider = user.providerData[0].providerId;
+      }
+
       switch (provider) {
-        case 'facebook':
+        case 'facebook.com':
           output = 'mdi-facebook-box';
           break;
-        case 'github':
+        case 'github.com':
           output = 'mdi-github-box';
           break;
-        case 'google':
+        case 'google.com':
           output = 'mdi-google-plus-box';
+          break;
+        default:
+          output = 'mdi-email-outline';
           break;
       }
 
@@ -51,14 +59,15 @@
       $event.preventDefault();
       $event.stopPropagation();
 
-      Auth.$signOut();
+      Auth._.$signOut();
+      //vm.user = false;
 
       $state.go('events');
     };
 
     // Watcher for auth status
-    Auth.$onAuthStateChanged(function onAuth(user) {
-      vm.user = user;
-    });
+    // $rootScope.$on('$destroy', $rootScope.$on('userLoggedIn', function (evt, user) {
+    //   //vm.user = user;
+    // }));
   }
 })();

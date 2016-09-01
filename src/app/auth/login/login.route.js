@@ -25,10 +25,7 @@
             'content@': {
               templateUrl: 'app/auth/login/login.html',
               controller: 'LoginController',
-              controllerAs: 'vm',
-              resolve: {
-                _user: _user
-              }
+              controllerAs: 'vm'
             }
           }
         }
@@ -36,10 +33,4 @@
     ];
   }
 
-  /**
-   * @ngInject
-   */
-  function _user(Auth) {
-    return Auth.$waitForSignIn();
-  }
 })();

@@ -1,42 +1,58 @@
-<md-content class="login-page">
-  <div layout="row" layout-align="end start">
-    <md-button class="md-icon-button" ui-sref="events">
-      <i class="mdi mdi-close"></i>
-    </md-button>
-  </div>
+<div class="form-login">
+  <i class="mdi mdi-close"></i>
   <form name="loginForm">
-    <div layout="column">
+    <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
-        <label for="email">E-mail</label>
-        <input name="email" id="email" ng-model="vm.loginForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-        <div ng-messages="loginForm.email.$error">
-          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-            Your e-mail must be between 10 and 100 characters long and look like an e-mail address.
-          </div>
+        <label for="name">Name</label>
+        <input maxlength="30" minlength="6" ng-required="true" name="name" id="name" ng-model="vm.loginForm.name" />
+        <div class="hint">Tell us what we should call you!</div>
+        <div ng-messages="loginForm.name.$error">
+          <div ng-message="required">Name is required.</div>
+          <div ng-message="minlength">The name has to be larger than 6 characters long.</div>
+          <div ng-message="maxlength">The name has to be less than 30 characters long.</div>
         </div>
       </md-input-container>
       <div flex="5" hide-xs hide-sm>
         <!-- Spacer //-->
       </div>
       <md-input-container class="md-block" flex-gt-sm>
+        <label for="email">Email</label>
+        <input name="email" id="email" ng-model="vm.loginForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+        <div class="hint">How can we reach you?</div>
+        <div ng-messages="loginForm.email.$error">
+          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your email must be between 10 and 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
         <label for="pwd">Password</label>
         <input maxlength="30" minlength="6" ng-required="true" name="pwd" id="pwd" ng-model="vm.loginForm.pwd" />
+        <div class="hint">Write a strong password</div>
         <div ng-messages="loginForm.pwd.$error">
           <div ng-message="required">Password is required.</div>
           <div ng-message="minlength">The password has to be larger than 6 characters long.</div>
           <div ng-message="maxlength">The password has to be less than 30 characters long.</div>
         </div>
       </md-input-container>
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="vm.loginWithPassword($event)" class="md-raised md-primary">Login</md-button>
-        <md-button>Forgot your password?</md-button>
-      </section>
+      <div flex="5" hide-xs hide-sm>
+        <!-- Spacer //-->
+      </div>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label for="pwd1">Confirm password</label>
+        <input compare-to="vm.loginForm.pwd" name="pwd1" id="pwd1" ng-model="vm.loginForm.pwd1" />
+        <div class="hint"></div>
+        <div ng-messages="loginForm.pwd1.$error">
+          <div ng-message="compare-to">Passwords doesn't match.</div>
+        </div>
+      </md-input-container>
     </div>
   </form>
-  <div layout="row" layout-align="center start">
-    <h4 class="md-title">Social login</h4>
-  </div>
-  <div layout="row" layout-align="center start">
+  <form>
+    <h4 class="md-title">or register with</h4>
+
     <md-button class="md-fab" aria-label="Log in with Facebook account"
                ng-click="vm.login('facebook')">
       <md-tooltip>
@@ -60,5 +76,5 @@
       </md-tooltip>
       <i class="mdi mdi-google-plus-box"></i>
     </md-button>
-  </div>
-</md-content>
+  </form>
+</div>

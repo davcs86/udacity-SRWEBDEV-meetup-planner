@@ -22,11 +22,6 @@
               templateUrl: 'app/layout/header.html',
               controller: 'HeaderController',
               controllerAs: 'vm'
-            },
-            footer: {
-              templateUrl: 'app/layout/footer.html',
-              controller: 'FooterController',
-              controllerAs: 'vm'
             }
           }
         }

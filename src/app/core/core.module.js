@@ -14,7 +14,8 @@
       'firebase',
       'davcs86.meetupPlanner.components.exception',
       'davcs86.meetupPlanner.components.logger',
-      'davcs86.meetupPlanner.components.router'
+      'davcs86.meetupPlanner.components.router',
+      'davcs86.meetupPlanner.components.compareTo'
     ])
   ;
 })();

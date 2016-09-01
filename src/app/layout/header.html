@@ -2,38 +2,47 @@
   <div class="md-toolbar-tools">
     <span>Meet-up planner</span>
     <span flex></span>
-    <md-button
-      ng-show="!vm.user"
-      ui-sref="auth.login">
-      <i class="mdi mdi-login"></i>
-
-      Login
-    </md-button>
-
-    <md-list-item class="md-3-line"
-                  ng-show="vm.user"
-    >
-      <img class="md-avatar" alt="{{vm.user.displayName}}"
-           ng-src="{{vm.user.profileImageURL}}"
-      />
-
+    <md-list-item class="md-3-line" ng-show="!vm.user.currentUser">
       <div class="md-list-item-text">
+        <md-button ui-sref="auth.login">
+          <i class="mdi mdi-login"></i>
+          Login
+        </md-button>
+      </div>
+      <div class="md-list-item-text">
+        <md-button ui-sref="auth.register">
+          <i class="mdi mdi-account-plus"></i>
+          Register
+        </md-button>
+      </div>
+    </md-list-item>
+
+    <md-list-item class="md-3-line" ng-show="vm.user.currentUser" >
+      <div class="md-list-item-text profile-header" ui-sref="profile">
+        <img class="md-avatar" alt="{{vm.user.currentUser.displayName}}" ng-src="{{vm.user.currentUser.photoURL}}"/>
+        <md-tooltip>
+          Click to edit your profile
+        </md-tooltip>
+      </div>
+
+      <div class="md-list-item-text profile-header" ui-sref="profile">
         <h3>
-          <i class="mdi" ng-class="vm.getProviderClass(vm.user.provider)"></i>
-
-          <span ng-bind="vm.user.displayName"></span>
+          <i class="mdi" ng-class="vm.getProviderClass(vm.user.currentUser)"></i>
+          <span ng-bind="vm.user.currentUser.displayName"></span>
         </h3>
-
-        <p ng-bind="vm.user.email"></p>
+        <p ng-bind="vm.user.currentUser.email"></p>
+        <md-tooltip>
+          Click to edit your profile
+        </md-tooltip>
       </div>
 
       <div class="md-list-item-text">
         <md-button ng-click="vm.logout($event)">
           <i class="mdi mdi-logout"></i>
-
           Logout
         </md-button>
       </div>
+
     </md-list-item>
   </div>
 </md-toolbar>
