@@ -6,7 +6,7 @@
   </div>
   <form name="loginForm">
     <div layout="column">
-      <md-input-container class="md-block" flex-gt-sm>
+      <md-input-container class="md-block" flex>
         <label for="email">E-mail</label>
         <input name="email" id="email" ng-model="vm.loginForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
         <div ng-messages="loginForm.email.$error">
@@ -15,16 +15,11 @@
           </div>
         </div>
       </md-input-container>
-      <div flex="5" hide-xs hide-sm>
-        <!-- Spacer //-->
-      </div>
-      <md-input-container class="md-block" flex-gt-sm>
+      <md-input-container class="md-block" flex>
         <label for="pwd">Password</label>
-        <input maxlength="30" minlength="6" ng-required="true" name="pwd" id="pwd" ng-model="vm.loginForm.pwd" />
+        <input type="password" ng-required="true" name="pwd" id="pwd" ng-model="vm.loginForm.pwd" />
         <div ng-messages="loginForm.pwd.$error">
           <div ng-message="required">Password is required.</div>
-          <div ng-message="minlength">The password has to be larger than 6 characters long.</div>
-          <div ng-message="maxlength">The password has to be less than 30 characters long.</div>
         </div>
       </md-input-container>
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

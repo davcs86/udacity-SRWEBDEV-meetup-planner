@@ -3,7 +3,7 @@
 
   angular
     .module('davcs86.meetupPlanner.components.compareTo')
-    .factory('compareTo', compareTo)
+    .directive('compareTo', compareTo)
   ;
 
   function compareTo() {
@@ -15,7 +15,7 @@
       link: function (scope, element, attributes, ngModel) {
 
         ngModel.$validators.compareTo = function (modelValue) {
-          return modelValue == scope.otherModelValue;
+          return modelValue == scope.otherModelValue.$viewValue;
         };
 
         scope.$watch("otherModelValue", function () {
