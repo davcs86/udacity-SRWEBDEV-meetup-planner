@@ -18,7 +18,7 @@
       {
         state: 'profile',
         config: {
-          url: '/',
+          url: '/profile',
           parent: 'davcs86_meetupPlanner',
           title: 'Profile',
           //containerClass: 'about-container',

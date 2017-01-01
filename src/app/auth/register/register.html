@@ -9,7 +9,7 @@
       <md-input-container class="md-block" flex>
         <label for="name">Name</label>
         <input maxlength="30" minlength="6" ng-required="true" name="name" id="name" ng-model="vm.registerForm.name" />
-        <div class="hint">Tell us what we should call you!</div>
+        <div class="small">Tell us what we should call you!</div>
         <div ng-messages="registerForm.name.$error">
           <div ng-message="required">Name is required.</div>
           <div ng-message="minlength">The name has to be larger than 6 characters long.</div>
@@ -19,7 +19,7 @@
       <md-input-container class="md-block" flex>
         <label for="email">E-mail</label>
         <input name="email" id="email" ng-model="vm.registerForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-        <div class="hint">How can we reach you?</div>
+        <div class="small">How can we reach you?</div>
         <div ng-messages="registerForm.email.$error">
           <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
             Your email must be between 10 and 100 characters long and look like an e-mail address.
@@ -29,7 +29,7 @@
       <md-input-container class="md-block" flex>
         <label for="pwd">Password</label>
         <input type="password" maxlength="30" minlength="6" ng-required="true" name="pwd" id="pwd" ng-model="vm.registerForm.pwd" />
-        <div class="hint">Write a strong password</div>
+        <div class="small">Write a strong password</div>
         <div ng-messages="registerForm.pwd.$error">
           <div ng-message="required">Password is required.</div>
           <div ng-message="minlength">The password has to be larger than 6 characters long.</div>
@@ -39,14 +39,14 @@
       <md-input-container class="md-block" flex>
         <label for="pwd1">Confirm password</label>
         <input type="password" compare-to="registerForm.pwd" name="pwd1" id="pwd1" ng-model="vm.registerForm.pwd1" />
-        <div class="hint"></div>
+        <div class="small"></div>
         <div ng-messages="registerForm.pwd1.$error">
           <div ng-message="compareTo">Passwords doesn't match.</div>
         </div>
       </md-input-container>
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <md-button ng-click="vm.createUserWithPassword($event)" class="md-raised md-primary">Register</md-button>
-        <md-button ui-sref="auth.login">Already registered?</md-button>
+        <md-button ui-sref="auth.login" class="md-raised">Already registered?</md-button>
       </section>
     </div>
   </form>
