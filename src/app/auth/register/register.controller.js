@@ -21,6 +21,7 @@
     };
 
     if (Auth._._._auth.currentUser!=null){
+      logger.log(Auth._.$getAuth());
       $state.go('events');
     }
 
@@ -35,13 +36,14 @@
             logger.success('User was created successful');
             // save display name
             Auth._.$getAuth()
-              .currentUser
               .updateProfile({
-                displayName:vm.registerForm.name
+                displayName: vm.registerForm.name
               }).then(function(){
+                logger.log('+');
                 $state.go('events');
               },
               function(){
+                logger.log('-');
                 $state.go('events');
               });
           },

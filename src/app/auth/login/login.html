@@ -8,7 +8,7 @@
     <div layout="column">
       <md-input-container class="md-block" flex>
         <label for="email">E-mail</label>
-        <input name="email" id="email" ng-model="vm.loginForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+        <input name="email" id="email" ng-model="vm.loginForm.email" autocomplete="email" autofocus ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
         <div ng-messages="loginForm.email.$error">
           <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
             Your e-mail must be between 10 and 100 characters long and look like an e-mail address.
@@ -17,7 +17,7 @@
       </md-input-container>
       <md-input-container class="md-block" flex>
         <label for="pwd">Password</label>
-        <input type="password" ng-required="true" name="pwd" id="pwd" ng-model="vm.loginForm.pwd" />
+        <input type="password" autocomplete="current-password" ng-required="true" name="pwd" id="pwd" ng-model="vm.loginForm.pwd" />
         <div ng-messages="loginForm.pwd.$error">
           <div ng-message="required">Password is required.</div>
         </div>
