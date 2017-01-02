@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('davcs86.meetupPlanner.auth.services')
+    .module('davcs86.meetupPlanner.auth')
     .service('Auth', Auth)
   ;
 

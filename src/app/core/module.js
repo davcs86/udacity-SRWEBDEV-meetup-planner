@@ -4,7 +4,6 @@
   angular
     .module('davcs86.meetupPlanner.core', [
       'ngAnimate',
-      //'ngTouch', // already implemented by ngMaterial
       'ngSanitize',
       'ngMessages',
       'ngAria',

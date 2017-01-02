@@ -5,6 +5,5 @@
   angular
     .module('davcs86.meetupPlanner.core')
     .constant('moment', moment)
-    //.constant('Firebase', firebase)
   ;
 })();
