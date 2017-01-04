@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('davcs86.meetupPlanner.layout')
+    .module('davcs86.meetupPlanner.layout.header')
     .run(moduleRun)
   ;
 
@@ -19,7 +19,7 @@
           abstract: true,
           views: {
             header: {
-              templateUrl: 'app/layout/header.html',
+              templateUrl: 'app/layout/header/index.html',
               controller: 'HeaderController',
               controllerAs: 'vm'
             }

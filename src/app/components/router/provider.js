@@ -27,7 +27,11 @@
     // Default config for routerHelper
     var config = {
       docTitle: undefined,
-      resolveAlways: {}
+      resolveAlways: {
+        // counter: function(){
+        //   return Math.random();
+        // }
+      }
     };
 
     // We want to use HTML5 mode with routing

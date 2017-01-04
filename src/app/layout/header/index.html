@@ -1,38 +1,44 @@
 <md-toolbar class="md-hue-2">
   <div class="md-toolbar-tools">
-    <span>Meet-up planner</span>
-    <span flex></span>
-    <md-list-item class="md-3-line" ng-show="!vm.user.currentUser">
+    <md-list-item class="md-3-line">
       <div class="md-list-item-text">
-        <md-button ui-sref="auth.login">
+        <md-button ui-sref="events.list">
+          Meet-up planner
+        </md-button>
+      </div>
+    </md-list-item>
+    <span flex></span>
+    <md-list-item class="md-3-line" ng-show="!vm.user">
+      <div class="md-list-item-text">
+        <md-button ui-sref="auth.login" ui-sref-opts="{reload:true}">
           <i class="mdi mdi-login"></i>
           Login
         </md-button>
       </div>
       <div class="md-list-item-text">
-        <md-button ui-sref="auth.register">
+        <md-button ui-sref="auth.register" ui-sref-opts="{reload:true}">
           <i class="mdi mdi-account-plus"></i>
           Register
         </md-button>
       </div>
     </md-list-item>
 
-    <md-list-item class="md-3-line" ng-show="vm.user.currentUser" >
-      <div class="md-list-item-text profile-header" ui-sref="profile">
-        <img class="md-avatar" alt="{{vm.user.currentUser.displayName}}" ng-src="{{vm.user.currentUser.photoURL}}"/>
+    <md-list-item class="md-3-line" ng-show="vm.user" >
+      <div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">
+        <img class="md-avatar" alt="{{vm.user.displayName}}" ng-src="{{vm.user.photoURL}}"/>
         <md-tooltip>
-          Click to edit your profile
+          Click to view your profile
         </md-tooltip>
       </div>
 
-      <div class="md-list-item-text profile-header" ui-sref="profile">
+      <div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">
         <h3>
-          <i class="mdi" ng-class="vm.getProviderClass(vm.user.currentUser)"></i>
-          <span ng-bind="vm.user.currentUser.displayName"></span>
+          <i class="mdi" ng-class="vm.getProviderClass()"></i>
+          <span ng-bind="vm.user.displayName"></span>
         </h3>
-        <p ng-bind="vm.user.currentUser.email"></p>
+        <p ng-bind="vm.user.email"></p>
         <md-tooltip>
-          Click to edit your profile
+          Click to view your profile
         </md-tooltip>
       </div>
 

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('davcs86.meetupPlanner.profile')
+    .module('davcs86.meetupPlanner.profile.details')
     .run(moduleRun)
   ;
 
@@ -16,15 +16,15 @@
   function getStates() {
     return [
       {
-        state: 'profile',
+        state: 'profile.details',
         config: {
-          url: '/profile',
+          url: '/profile/{profileId}',
           parent: 'davcs86_meetupPlanner',
           title: 'Profile',
           //containerClass: 'about-container',
           views: {
             'content@': {
-              templateUrl: 'app/profile/profile.html',
+              templateUrl: 'app/profile/details/index.html',
               controller: 'ProfileController',
               controllerAs: 'vm'
             }

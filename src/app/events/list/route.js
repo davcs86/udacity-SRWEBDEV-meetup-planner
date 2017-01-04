@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('davcs86.meetupPlanner.eventlist')
+    .module('davcs86.meetupPlanner.events.list')
     .run(moduleRun)
   ;
 
@@ -16,7 +16,7 @@
   function getStates() {
     return [
       {
-        state: 'events',
+        state: 'events.list',
         config: {
           url: '/',
           parent: 'davcs86_meetupPlanner',
@@ -24,8 +24,8 @@
           //containerClass: 'about-container',
           views: {
             'content@': {
-              templateUrl: 'app/eventlist/eventlist.html',
-              controller: 'EventListController',
+              templateUrl: 'app/events/list/index.html',
+              controller: 'ListController',
               controllerAs: 'vm'
             }
           }

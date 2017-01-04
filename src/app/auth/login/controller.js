@@ -18,8 +18,8 @@
       pwd: ''
     };
 
-    if (Auth._._._auth.currentUser!=null){
-      $state.go('events');
+    if (Auth.currentUser !== null){
+      $state.go('events.list');
     }
 
     vm.loginWithPassword = function($event) {
@@ -28,10 +28,10 @@
       // trigger messages in UI
       $scope.loginForm.$setSubmitted();
       if ($scope.loginForm.$valid){
-        Auth._.$signInWithEmailAndPassword(vm.loginForm.email, vm.loginForm.pwd).then(
+        Auth.authObj.$signInWithEmailAndPassword(vm.loginForm.email, vm.loginForm.pwd).then(
           function(){
             logger.success('Login successful');
-            $state.go('events');
+            $state.go('events.list');
           },
           function(error){
             var errorMsg = '';

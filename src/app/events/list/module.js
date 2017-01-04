@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('davcs86.meetupPlanner.eventlist', [])
+    .module('davcs86.meetupPlanner.events.list', [])
   ;
 })();

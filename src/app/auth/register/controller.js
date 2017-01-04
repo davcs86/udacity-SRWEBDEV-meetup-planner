@@ -20,9 +20,8 @@
       pwd1: ''
     };
 
-    if (Auth._._._auth.currentUser!=null){
-      logger.log(Auth._.$getAuth());
-      $state.go('events');
+    if (Auth.currentUser !== null){
+      $state.go('events.list');
     }
 
     vm.createUserWithPassword = function($event) {
@@ -31,20 +30,18 @@
       // trigger messages in UI
       $scope.registerForm.$setSubmitted();
       if ($scope.registerForm.$valid){
-        Auth._.$createUserWithEmailAndPassword(vm.registerForm.email, vm.registerForm.pwd).then(
+        Auth.authObj.$createUserWithEmailAndPassword(vm.registerForm.email, vm.registerForm.pwd).then(
           function(){
             logger.success('User was created successful');
             // save display name
-            Auth._.$getAuth()
+            Auth.authObj.$getAuth()
               .updateProfile({
                 displayName: vm.registerForm.name
               }).then(function(){
-                logger.log('+');
-                $state.go('events');
+                $state.go('events.list');
               },
               function(){
-                logger.log('-');
-                $state.go('events');
+                $state.go('events.list');
               });
           },
           function(error){

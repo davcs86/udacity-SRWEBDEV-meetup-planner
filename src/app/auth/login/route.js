@@ -23,7 +23,7 @@
           //containerClass: 'login-container',
           views: {
             'content@': {
-              templateUrl: 'app/auth/login/login.html',
+              templateUrl: 'app/auth/login/index.html',
               controller: 'LoginController',
               controllerAs: 'vm'
             }
