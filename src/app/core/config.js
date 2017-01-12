@@ -56,8 +56,9 @@
     // Configure material design palettes
     $mdThemingProvider
       .theme('default')
-      .primaryPalette('blue-grey')
-      .accentPalette('blue')
+      .primaryPalette('indigo')
+      .accentPalette('deep-orange')
+      //.warnPalette('red')
     ;
 
     // Configure exception handler provider

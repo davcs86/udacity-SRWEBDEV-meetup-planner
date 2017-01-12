@@ -19,7 +19,7 @@
         state: 'events.list',
         config: {
           url: '/',
-          parent: 'davcs86_meetupPlanner',
+          //parent: 'davcs86_meetupPlanner',
           title: 'Events',
           //containerClass: 'about-container',
           views: {

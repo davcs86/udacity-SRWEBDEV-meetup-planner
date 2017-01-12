@@ -28,7 +28,6 @@
      */
     vm.getProviderClass = function getProviderClass() {
       var output = '';
-      console.log(vm.user);
       if (vm.user !== null && vm.user.providerData.length > 0) {
         var provider = vm.user.providerData[0].providerId;
 

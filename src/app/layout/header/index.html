@@ -1,54 +1,81 @@
-<md-toolbar class="md-hue-2">
-  <div class="md-toolbar-tools">
-    <md-list-item class="md-3-line">
-      <div class="md-list-item-text">
-        <md-button ui-sref="events.list">
-          Meet-up planner
-        </md-button>
-      </div>
-    </md-list-item>
-    <span flex></span>
-    <md-list-item class="md-3-line" ng-show="!vm.user">
-      <div class="md-list-item-text">
-        <md-button ui-sref="auth.login" ui-sref-opts="{reload:true}">
-          <i class="mdi mdi-login"></i>
-          Login
-        </md-button>
-      </div>
-      <div class="md-list-item-text">
-        <md-button ui-sref="auth.register" ui-sref-opts="{reload:true}">
-          <i class="mdi mdi-account-plus"></i>
-          Register
-        </md-button>
-      </div>
-    </md-list-item>
+<!--<md-toolbar class="md-hue-2">-->
+  <!--<div class="md-toolbar-tools">-->
+    <!--<md-list-item class="md-3-line">-->
+      <!--<div class="md-list-item-text">-->
+        <!--<md-button ui-sref="events.list">-->
+          <!--Meet-up planner-->
+        <!--</md-button>-->
+      <!--</div>-->
+    <!--</md-list-item>-->
+    <!--<span flex></span>-->
+    <!--<md-list-item class="md-3-line" ng-show="!vm.user">-->
+      <!--<div class="md-list-item-text">-->
+        <!--<md-button ui-sref="auth.login" ui-sref-opts="{reload:true}">-->
+          <!--<i class="mdi mdi-login"></i>-->
+          <!--Login-->
+        <!--</md-button>-->
+      <!--</div>-->
+      <!--<div class="md-list-item-text">-->
+        <!--<md-button ui-sref="auth.register" ui-sref-opts="{reload:true}">-->
+          <!--<i class="mdi mdi-account-plus"></i>-->
+          <!--Register-->
+        <!--</md-button>-->
+      <!--</div>-->
+    <!--</md-list-item>-->
 
-    <md-list-item class="md-3-line" ng-show="vm.user" >
-      <div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">
-        <img class="md-avatar" alt="{{vm.user.displayName}}" ng-src="{{vm.user.photoURL}}"/>
-        <md-tooltip>
-          Click to view your profile
-        </md-tooltip>
-      </div>
+    <!--<md-list-item class="md-3-line" ng-show="vm.user">-->
+      <!--<div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">-->
+        <!--<img class="md-avatar" alt="{{vm.user.displayName}}" ng-src="{{vm.user.photoURL}}"/>-->
+        <!--<md-tooltip>-->
+          <!--Click to view your profile-->
+        <!--</md-tooltip>-->
+      <!--</div>-->
 
-      <div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">
-        <h3>
-          <i class="mdi" ng-class="vm.getProviderClass()"></i>
-          <span ng-bind="vm.user.displayName"></span>
-        </h3>
-        <p ng-bind="vm.user.email"></p>
-        <md-tooltip>
-          Click to view your profile
-        </md-tooltip>
-      </div>
+      <!--<div class="md-list-item-text profile-header" ui-sref="profile.details({profileId: vm.user.uid})">-->
+        <!--<h3>-->
+          <!--<i class="mdi" ng-class="vm.getProviderClass()"></i>-->
+          <!--<span ng-bind="vm.user.displayName"></span>-->
+        <!--</h3>-->
+        <!--<p ng-bind="vm.user.email"></p>-->
+        <!--<md-tooltip>-->
+          <!--Click to view your profile-->
+        <!--</md-tooltip>-->
+      <!--</div>-->
 
-      <div class="md-list-item-text">
-        <md-button ng-click="vm.logout($event)">
-          <i class="mdi mdi-logout"></i>
-          Logout
-        </md-button>
-      </div>
+      <!--<div class="md-list-item-text">-->
+        <!--<md-button ng-click="vm.logout($event)">-->
+          <!--<i class="mdi mdi-logout"></i>-->
+          <!--Logout-->
+        <!--</md-button>-->
+      <!--</div>-->
 
-    </md-list-item>
+    <!--</md-list-item>-->
+  <!--</div>-->
+<!--</md-toolbar>-->
+
+<div id="gkHeaderNav" class="static">
+  <div class="gkPage">
+
+    <a ui-sref="events.list" id="gkLogoSmall" class="cssLogo">Meet ups</a>
+
+    <div id="gkMainMenu" class="gkMenuClassic">
+      <nav id="gkExtraMenu" class="gkMenu">
+        <ul class="gkmenu">
+          <li class="first">
+            <a ui-sref="events.list">Events</a>
+          </li>
+          <li>
+            <a ui-sref="speakers.list" onmouseover="">Speakers</a>
+          </li>
+          <li class="last gkLogin">
+            <a ui-sref="auth.login" ui-sref-opts="{reload:true}" class="last gkLogin">Log in</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="gkMobileMenu" class="gkPage">
+      <i id="static-aside-menu-toggler" class="fa fa-bars"></i>
+    </div>
   </div>
-</md-toolbar>
+</div>

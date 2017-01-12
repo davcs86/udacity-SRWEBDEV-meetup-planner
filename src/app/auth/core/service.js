@@ -12,14 +12,17 @@
   function Auth($window, config, $firebaseAuth, $state, $log, logger) {
     var that = this;
     $window.firebase.initializeApp(config);
-    this.$state = $state;
-    this.$log = $log;
-    this.logger = logger;
-    this.authObj = $firebaseAuth();
-    this.currentUser = null;
+    angular.extend(this,
+      {
+        $state : $state,
+        $log : $log,
+        logger : logger,
+        authObj : $firebaseAuth(),
+        currentUser : null
+      }
+    );
+
     this.authObj.$onAuthStateChanged(function(user){
-      $log.log('$onAuthStateChanged');
-      $log.log(user);
       if (user){
         that.callbackSuccess(user);
       } else {
@@ -29,7 +32,6 @@
   }
 
   Auth.prototype.callbackSuccess = function(user){
-
     this.currentUser = user;
     this.$state.go('events.list', {}, {reload: true});
   };
@@ -50,7 +52,7 @@
     var that = this;
     this.authObj.$signInWithPopup(provider)
       .then(
-        function(user){that.callbackSuccess(user);} ,
+        function(user){that.callbackSuccess(user.user);} ,
         function(error){that.callbackError(error);}
       )
     ;

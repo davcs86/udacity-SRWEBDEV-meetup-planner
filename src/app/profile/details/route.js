@@ -19,7 +19,7 @@
         state: 'profile.details',
         config: {
           url: '/profile/{profileId}',
-          parent: 'davcs86_meetupPlanner',
+          //parent: 'davcs86_meetupPlanner',
           title: 'Profile',
           //containerClass: 'about-container',
           views: {
