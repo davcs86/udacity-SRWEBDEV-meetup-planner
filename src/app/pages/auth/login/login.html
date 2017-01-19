@@ -1,0 +1,46 @@
+<div class="row" id="login-page">
+  <h3 class="page-title">Login or <a ui-sref="register">Register</a></h3>
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="row social-buttons">
+      <div class="col-xs-4">
+        <a ng-click="socialLogin('facebook')" class="btn btn-lg btn-block btn-facebook">
+          <i class="fa fa-facebook visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>Facebook</small></span>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a ng-click="socialLogin('github')" class="btn btn-lg btn-block btn-github">
+          <i class="fa fa-github visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>GitHub</small></span>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a ng-click="socialLogin('google')" class="btn btn-lg btn-block btn-google">
+          <i class="fa fa-google-plus visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>Google+</small></span>
+        </a>
+      </div>
+    </div>
+    <div class="row" id="pageOr">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <hr class="hrOr">
+        <span class="spanOr">or</span>
+      </div>
+    </div>
+    <div class="row">
+      <!-- form -->
+      <div class="col-xs-12">
+        <form name="loginForm" sf-schema="schema" sf-form="form" sf-model="model" autocomplete="on"
+              ng-submit="onSubmit(loginForm)"></form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="forgotPwd text-center">
+          <a ui-sref="forgotpwd">Forgot password?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<header class="navbar navbar-default navbar-fixed-top navbar-inner">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand visible-xs" ui-sref="events">MeetUp planner</a>
+    </div>
+    <nav class="hidden-xs">
+      <ul class="nav navbar-nav">
+        <a ui-sref="events" role="button" class="navbar-brand">MeetUp planner</a>
+        <li><a ui-sref="events">Events</a></li>
+        <li><a ui-sref="speakers">Speakers</a></li>
+        <li ng-show="!user"><a ui-sref="login">Login</a></li>
+        <li ng-show="user"><a ui-sref="profile.details(user.uid)">My profile</a></li>
+        <li ng-show="user"><a ng-click="logout()">Logout</a></li>
+      </ul>
+    </nav>
+    <nav  uib-collapse="!isCollapsed">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="events" ng-click="isCollapsed = !isCollapsed">Events</a></li>
+        <li><a ui-sref="speakers" ng-click="isCollapsed = !isCollapsed">Speakers</a></li>
+        <li ng-show="!user"><a ui-sref="login" ng-click="isCollapsed = !isCollapsed">Login</a></li>
+        <li ng-show="user"><a ui-sref="profile.details(user.uid)" ng-click="isCollapsed = !isCollapsed">My profile</a></li>
+        <li ng-show="user"><a ng-click="logout(); isCollapsed = !isCollapsed">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="header-placeholder"></div>

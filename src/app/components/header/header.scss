@@ -1,0 +1,17 @@
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.header-placeholder {
+  height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-placeholder {
+    height: 50px;
+  }
+}

@@ -1,0 +1,122 @@
+<div class="row" id="register-page">
+  <h3 class="page-title">Sign up or <a ui-sref="login">Login</a></h3>
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="row social-buttons">
+      <div class="col-xs-4">
+        <a ng-click="socialRegister('facebook')" class="btn btn-lg btn-block btn-facebook">
+          <i class="fa fa-facebook visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>Facebook</small></span>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a ng-click="socialRegister('github')" class="btn btn-lg btn-block btn-github">
+          <i class="fa fa-github visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>GitHub</small></span>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a ng-click="socialRegister('google')" class="btn btn-lg btn-block btn-google">
+          <i class="fa fa-google-plus visible-xs visible-lg"></i>
+          <span class="hidden-xs"><small>Google+</small></span>
+        </a>
+      </div>
+    </div>
+    <div class="row" id="pageOr">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <hr class="hrOr">
+        <span class="spanOr">or</span>
+      </div>
+    </div>
+    <div class="row">
+      <!-- form -->
+      <div class="col-xs-12">
+        <form name="registerForm" sf-schema="schema" sf-form="form" sf-model="model" autocomplete="on"
+              ng-submit="onSubmit(registerForm)" sf-options="{ formDefaults: { ngModelOptions: { allowInvalid: true } }}"></form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<md-content class="register-page">-->
+  <!--<div layout="row" layout-align="end start">-->
+    <!--<md-button class="md-icon-button" ui-sref="events">-->
+      <!--<i class="mdi mdi-close"></i>-->
+    <!--</md-button>-->
+  <!--</div>-->
+  <!--<form name="registerForm">-->
+    <!--<div layout="column">-->
+      <!--<md-input-container class="md-block" flex>-->
+        <!--<label for="name">Name</label>-->
+        <!--<input maxlength="30" minlength="6" ng-required="true" name="name" id="name" ng-model="vm.registerForm.name" />-->
+        <!--<div class="small">Tell us what we should call you!</div>-->
+        <!--<div ng-messages="registerForm.name.$error">-->
+          <!--<div ng-message="required">Name is required.</div>-->
+          <!--<div ng-message="minlength">The name has to be larger than 6 characters long.</div>-->
+          <!--<div ng-message="maxlength">The name has to be less than 30 characters long.</div>-->
+        <!--</div>-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="md-block" flex>-->
+        <!--<label for="email">E-mail</label>-->
+        <!--<input name="email" id="email" ng-model="vm.registerForm.email" ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />-->
+        <!--<div class="small">How can we reach you?</div>-->
+        <!--<div ng-messages="registerForm.email.$error">-->
+          <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+            <!--Your email must be between 10 and 100 characters long and look like an e-mail address.-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="md-block" flex>-->
+        <!--<label for="pwd">Password</label>-->
+        <!--<input type="password" maxlength="30" minlength="6" ng-required="true" name="pwd" id="pwd" ng-model="vm.registerForm.pwd" />-->
+        <!--<div class="small">Write a strong password</div>-->
+        <!--<div ng-messages="registerForm.pwd.$error">-->
+          <!--<div ng-message="required">Password is required.</div>-->
+          <!--<div ng-message="minlength">The password has to be larger than 6 characters long.</div>-->
+          <!--<div ng-message="maxlength">The password has to be less than 30 characters long.</div>-->
+        <!--</div>-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="md-block" flex>-->
+        <!--<label for="pwd1">Confirm password</label>-->
+        <!--<input type="password" compare-to="registerForm.pwd" name="pwd1" id="pwd1" ng-model="vm.registerForm.pwd1" />-->
+        <!--<div class="small"></div>-->
+        <!--<div ng-messages="registerForm.pwd1.$error">-->
+          <!--<div ng-message="compareTo">Passwords doesn't match.</div>-->
+        <!--</div>-->
+      <!--</md-input-container>-->
+      <!--<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>-->
+        <!--<md-button ng-click="vm.createUserWithPassword($event)" class="md-raised md-primary">Register</md-button>-->
+        <!--<md-button ui-sref="auth.login" class="md-raised">Already registered?</md-button>-->
+      <!--</section>-->
+    <!--</div>-->
+  <!--</form>-->
+  <!--<div layout="row" layout-align="center start">-->
+    <!--<h4 class="md-title">Social login</h4>-->
+  <!--</div>-->
+  <!--<div layout="row" layout-align="center start">-->
+    <!--<md-button class="md-fab" aria-label="Log in with Facebook account"-->
+               <!--ng-click="vm.register('facebook')">-->
+      <!--<md-tooltip>-->
+        <!--Log in with Facebook account-->
+      <!--</md-tooltip>-->
+      <!--<i class="mdi mdi-facebook-box"></i>-->
+    <!--</md-button>-->
+
+    <!--<md-button class="md-fab" aria-label="Log in with GitHub account"-->
+               <!--ng-click="vm.register('github')" >-->
+      <!--<md-tooltip>-->
+        <!--Log in with GitHub account-->
+      <!--</md-tooltip>-->
+      <!--<i class="mdi mdi-github-box"></i>-->
+    <!--</md-button>-->
+
+    <!--<md-button class="md-fab" aria-label="Log in with Google account"-->
+               <!--ng-click="vm.register('google')">-->
+      <!--<md-tooltip>-->
+        <!--Log in with Google account-->
+      <!--</md-tooltip>-->
+      <!--<i class="mdi mdi-google-plus-box"></i>-->
+    <!--</md-button>-->
+  <!--</div>-->
+<!--</md-content>-->

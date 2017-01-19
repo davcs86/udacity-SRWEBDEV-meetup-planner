@@ -1,7 +1,7 @@
 {
   "extends": "eslint:recommended",
   "plugins": ["angular"],
-  "exclude": ["jquery"],
+  "exclude": [],
   "env": {
     "browser": true,
     "jasmine": true
@@ -9,7 +9,6 @@
   "globals": {
     "angular": true,
     "module": true,
-    "inject": true,
-    "jQuery": true
+    "inject": true
   }
 }

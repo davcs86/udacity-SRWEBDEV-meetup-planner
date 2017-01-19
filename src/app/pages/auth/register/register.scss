@@ -1,0 +1,7 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+@import '../commons';
+
+#register-page {
+  @include auth-page($body-bg);
+}
+
