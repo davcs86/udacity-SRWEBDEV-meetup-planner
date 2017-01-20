@@ -15,7 +15,7 @@
         <li><a ui-sref="events">Events</a></li>
         <li><a ui-sref="speakers">Speakers</a></li>
         <li ng-show="!user"><a ui-sref="login">Login</a></li>
-        <li ng-show="user"><a ui-sref="profile.details(user.uid)">My profile</a></li>
+        <li ng-show="user"><a ui-sref="me">My profile</a></li>
         <li ng-show="user"><a ng-click="logout()">Logout</a></li>
       </ul>
     </nav>
@@ -24,7 +24,7 @@
         <li><a ui-sref="events" ng-click="isCollapsed = !isCollapsed">Events</a></li>
         <li><a ui-sref="speakers" ng-click="isCollapsed = !isCollapsed">Speakers</a></li>
         <li ng-show="!user"><a ui-sref="login" ng-click="isCollapsed = !isCollapsed">Login</a></li>
-        <li ng-show="user"><a ui-sref="profile.details(user.uid)" ng-click="isCollapsed = !isCollapsed">My profile</a></li>
+        <li ng-show="user"><a ui-sref="me" ng-click="isCollapsed = !isCollapsed">My profile</a></li>
         <li ng-show="user"><a ng-click="logout(); isCollapsed = !isCollapsed">Logout</a></li>
       </ul>
     </nav>

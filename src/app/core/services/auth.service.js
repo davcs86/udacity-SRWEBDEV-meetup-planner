@@ -44,7 +44,7 @@ export default function (app) {
 
     this.signInWithProvider = function (provider) {
       var that2 = that;
-      that.authObj.$signInWithPopup(provider)
+      return that.authObj.$signInWithPopup(provider)
         .then(
           function (user) {
             that2.callbackSuccess(user.user);

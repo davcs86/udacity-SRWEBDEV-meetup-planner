@@ -1,0 +1,6 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+@import '../commons';
+
+#edit-profile-page {
+  @include auth-page($body-bg);
+}

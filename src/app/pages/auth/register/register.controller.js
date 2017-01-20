@@ -14,7 +14,7 @@ function RegisterController(Auth, $state, $scope, $log) {
         "title": "Name",
         "type": "string",
         "minLength": 6,
-        "pattern": "^[A-za-z0-9][A-za-z0-9\s]{5,}$",
+        "pattern": "^[A-za-z0-9][A-za-z0-9\\s]{5,}$",
         "description": "Your name or favorite nickname.",
         "validationMessage": "Your name must have at least 6 characters."
       },
@@ -33,7 +33,7 @@ function RegisterController(Auth, $state, $scope, $log) {
           "type": "password"
         },
         "minLength": 6,
-        "pattern": "^[A-za-z0-9 ]{6,}$",
+        "pattern": "^[A-za-z0-9]{6,}$",
         "description": "Please write a strong password.",
         "validationMessage": "Your password must have at least 6 letters and/or numbers, and contain at least one upper case letter and one number."
       },
@@ -85,16 +85,16 @@ function RegisterController(Auth, $state, $scope, $log) {
 
   $scope.model = {};
 
-  $scope.pwdsMatch = function(){
+  $scope.pwdsMatch = function () {
     // Trigger error if passwords don't match.
-    if ($scope.model.password !== $scope.model["confirm-password"]){
-      $scope.$broadcast('schemaForm.error.confirm-password','noMatch', false);
+    if ($scope.model.password !== $scope.model["confirm-password"]) {
+      $scope.$broadcast('schemaForm.error.confirm-password', 'noMatch', false);
     } else {
-      $scope.$broadcast('schemaForm.error.confirm-password','noMatch', true);
+      $scope.$broadcast('schemaForm.error.confirm-password', 'noMatch', true);
     }
   };
 
-  $scope.onSubmit = function(form) {
+  $scope.onSubmit = function (form) {
     $scope.pwdsMatch();
     // First we broadcast an event so all fields validate themselves
     $scope.$broadcast('schemaFormValidate');
@@ -104,12 +104,11 @@ function RegisterController(Auth, $state, $scope, $log) {
     }
   };
 
-  this.createUserWithPassword = function () {
-    $log.log($scope.model.name, $scope.model.email, $scope.model.password);
+  $scope.createUserWithPassword = function () {
     Auth.createUserWithPassword($scope.model.name, $scope.model.email, $scope.model.password);
   };
 
-  this.socialRegister = function (provider) {
+  $scope.socialRegister = function (provider) {
     // Register with social media
     Auth.signInWithProvider(provider);
   };
